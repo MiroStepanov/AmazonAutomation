@@ -24,11 +24,20 @@ public class StepDefinitions {
     public void amazonHomePageIsVisible() {
         webApp.homePage().verifyLogoIsPresent();
     }
-//
-//    @Then("^Owner Information page header text should be  \"([^\"]*)\"$")
-//    public void ownerInformationPageHeaderTextShouldBe(String arg0) throws Throwable {
-//        System.out.println("This is for test purposes only");
-//    }
 
+    @Given("^the user is on Amazon Home Page")
+    public void theUserIsOnAmazonPage() {
+        webApp.startBrowser("chrome");
+        webApp.homePage().gotoPage();
+    }
 
+    @When("^the user enters \"([^\"]*)\" into the Amazon Search Bar and presses enter")
+    public void enterTextIntoSearchBar(String query) {
+        webApp.homePage().search( query );
+    }
+
+    @Then("^first result is \"([^\"]*)\"")
+    public void firstResultIs(String title) {
+        webApp.homePage().verifyFirstResultTitle(title);
+    }
 }

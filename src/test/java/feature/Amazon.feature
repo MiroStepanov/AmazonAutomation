@@ -8,13 +8,12 @@ Feature: Add a book into the basket
     Given the user opens a web browser
     When the user opens amazon
     Then Amazon Home Page is visible
-#
-#  @searchForBook
-#  Scenario: Search for Harry potter book
-#    Given the user is on Amazon Home Page
-#    When the user enters "Harry Potter and the Cursed Child" into the amazon.search.bar
-#    And click enter
-#    And first result is "Harry Potter and the Cursed Child - Parts One & Two"
+
+  @searchForBook @test
+  Scenario: Search for Harry potter book
+    Given the user is on Amazon Home Page
+    When the user enters "Harry Potter and the Cursed Child" into the Amazon Search Bar and presses enter
+    Then first result is "Harry Potter and the Cursed Child - Parts One and Two"
 #    And the item has badge "<Badge>"
 #    And Items type should be "<Price>"
 #    And Items price should be "<Format>"
