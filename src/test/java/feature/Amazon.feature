@@ -18,7 +18,7 @@ Feature: Add a book into the basket
     And the item has badge "<Badge>"
     And Items type should be "<Price>"
     And Items price should be "<Format>"
-    Then the uuser click on title
+    Then the user click on title
     Examples:
               | Badge              | Format        | Price                                             |
               | Best Seller        | Paperback     | 6.67 |

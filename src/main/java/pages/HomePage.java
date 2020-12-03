@@ -13,27 +13,20 @@ public class HomePage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(HomePage.class);
     private static final String PAGE_URL = "/";
 
-    @FindBy(how = How.XPATH, using = "//img[@class='img-responsive']")
-    private WebElement image;
+    @FindBy(how = How.XPATH, using = "//[@id='nav-logo']")
+    private WebElement logo;
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
-    /**
-     * Navigates to current page
-     */
     public void gotoPage() {
         LOGGER.info("Navigate to:" + BASE_URL + PAGE_URL);
         navigateTo(PAGE_URL);
     }
 
-    /**
-     * Verifies image content is displayed
-     */
-    public void verifyImagePresent() {
-        LOGGER.info("Verifying image is present.");
-        Assertions.assertTrue(image.isDisplayed(), "Image is not displayed");
+    public void verifyLogoIsPresent() {
+        LOGGER.info("Verifying logo is present.");
+        Assertions.assertTrue(logo.isDisplayed(), "Logo is not present.");
     }
-
 }

@@ -14,7 +14,7 @@ public class StepDefinitions {
     public void iAmAtPetclinicOwnersPage() {
         webApp.startBrowser("chrome");
         webApp.homePage().gotoPage();
-//        webApp.components().mainMenu().clickFindOwnersLink();
+        webApp.homePage().verifyLogoIsPresent();
     }
 
     @When("^I create owner with name \"([^\"]*)\" address \"([^\"]*)\"$")
