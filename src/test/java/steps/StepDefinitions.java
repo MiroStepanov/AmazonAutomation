@@ -10,29 +10,25 @@ import org.junit.jupiter.api.BeforeAll;
 public class StepDefinitions {
     private WebApp webApp = new WebApp();
 
-    @Given("^I am at Petclinic Owners page$")
-    public void iAmAtPetclinicOwnersPage() {
+    @Given("^the user opens a web browser$")
+    public void theUserOpensWebBrowser() {
         webApp.startBrowser("chrome");
+    }
+
+    @When("^the user opens amazon")
+    public void theUserOpensAmazon() {
         webApp.homePage().gotoPage();
+    }
+
+    @Then("^Amazon Home Page is visible")
+    public void amazonHomePageIsVisible() {
         webApp.homePage().verifyLogoIsPresent();
     }
-
-    @When("^I create owner with name \"([^\"]*)\" address \"([^\"]*)\"$")
-    public void iCreateOwnerWithNameAddress(String arg0, String arg1) {
-//        webApp.findOwnersPage().clickAddOwnerLink();
-//        webApp.addOwnerPage().enterFirstName(arg0);
-//        webApp.addOwnerPage().enterAddress(arg1);
-    }
-
-    @Then("^user should be add Owner Information page$")
-    public void userShouldBeAddOwnerInformationPage() {
-//        webApp.ownerInformationPage().verifySecondHeaderText("Owner Information");
-    }
-
-    @Then("^Owner Information page header text should be  \"([^\"]*)\"$")
-    public void ownerInformationPageHeaderTextShouldBe(String arg0) throws Throwable {
-        System.out.println("This is for test purposes only");
-    }
+//
+//    @Then("^Owner Information page header text should be  \"([^\"]*)\"$")
+//    public void ownerInformationPageHeaderTextShouldBe(String arg0) throws Throwable {
+//        System.out.println("This is for test purposes only");
+//    }
 
 
 }

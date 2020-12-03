@@ -13,7 +13,7 @@ public class HomePage extends BasePage {
     private static final Logger LOGGER = LoggerFactory.getLogger(HomePage.class);
     private static final String PAGE_URL = "/";
 
-    @FindBy(how = How.XPATH, using = "//[@id='nav-logo']")
+    @FindBy(how = How.XPATH, using = "//div[@id='nav-logo']")
     private WebElement logo;
 
     public HomePage(WebDriver driver) {
