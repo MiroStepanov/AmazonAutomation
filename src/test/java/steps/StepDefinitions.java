@@ -36,8 +36,23 @@ public class StepDefinitions {
         webApp.homePage().search( query );
     }
 
-    @Then("^first result is \"([^\"]*)\"")
+    @When("^first result is \"([^\"]*)\"")
     public void firstResultIs(String title) {
         webApp.homePage().verifyFirstResultTitle(title);
+    }
+
+    @When("^the item has badge \"([^\"]*)\"")
+    public void itemHasBadge(String badge) {
+        webApp.homePage().verifyBadge( badge );
+    }
+
+    @When("^the item type should be \"([^\"]*)\"")
+    public void itemHasType(String type) {
+        webApp.homePage().verifyType( type );
+    }
+
+    @When("^the item price should be \"([^\"]*)\"")
+    public void itemHasPrice(String price) {
+        webApp.homePage().verifyPrice( price );
     }
 }
