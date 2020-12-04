@@ -20,17 +20,32 @@ public class HomePage extends BasePage {
     @FindBy(how = How.XPATH, using = "//input[@id='twotabsearchtextbox']")
     private WebElement searchInput;
 
-    @FindBy(how = How.XPATH, using = "//a[@class='a-link-normal a-text-normal']")
-    private WebElement firtResultTitle;
+    @FindBy(how = How.XPATH, using = "(//a[@class='a-link-normal a-text-normal'])[3]")
+    private WebElement firstResultTitle;
 
-    @FindBy(how = How.XPATH, using = "//span[@class='a-badge-text']")
-    private WebElement firtResultBadge;
+    @FindBy(how = How.XPATH, using = "(//span[@class='a-badge-text'])[3]")
+    private WebElement firstResultBadge;
 
-    @FindBy(how = How.XPATH, using = "//a[@class='a-size-base a-link-normal a-text-bold']")
-    private WebElement firtResultType;
+    @FindBy(how = How.XPATH, using = "//(a[@class='a-size-base a-link-normal a-text-bold'])[3]")
+    private WebElement firstResultType;
 
-    @FindBy(how = How.XPATH, using = "//span[@class='a-price']")
-    private WebElement firtResultPrice;
+    @FindBy(how = How.XPATH, using = "(//span[@class='a-price'])[3]")
+    private WebElement firstResultPrice;
+
+    @FindBy(how = How.XPATH, using = "//span[@id='productTitle']")
+    private WebElement bookDetailsTitle;
+
+    @FindBy(how = How.XPATH, using ="//a[@class='badge-link']")
+    private WebElement bookDetailsBadge;
+
+    @FindBy(how = How.XPATH, using ="//a[@class='a-button-text']")
+    private WebElement bookDetailsType;
+
+    @FindBy(how = How.XPATH, using ="//span[@class='offer-price']")
+    private WebElement bookDetailsPrice;
+
+    @FindBy(how = How.XPATH, using ="//input[@id='add-to-cart-button']")
+    private WebElement addToBasketButton;
 
 
 
@@ -56,21 +71,54 @@ public class HomePage extends BasePage {
 
     public void verifyFirstResultTitle(String title) {
         LOGGER.info( "Verifying the first result is " + title );
-        Assertions.assertTrue(getText(firtResultTitle).contains( title ), "First result was different " + getText(firtResultTitle));
+        Assertions.assertTrue(getText(firstResultTitle).contains( title ), "First result was different " + getText(firstResultTitle));
     }
 
     public void verifyBadge(String badge) {
         LOGGER.info( "Verifying the badge is " + badge );
-        Assertions.assertTrue(getText(firtResultBadge).contains(badge), "Badge was different " + getText(firtResultBadge));
+        Assertions.assertTrue(getText(firstResultBadge).contains(badge), "Badge was different " + getText(firstResultBadge));
     }
 
     public void verifyType(String type) {
         LOGGER.info( "Verifying the type is " + type );
-        Assertions.assertTrue(getText(firtResultType).contains(type) , "Type was different " + getText(firtResultType));
+        Assertions.assertTrue(getText(firstResultType).contains(type) , "Type was different " + getText(firstResultType));
     }
 
     public void verifyPrice(String price) {
         LOGGER.info( "Verifying the price is " + price );
-        Assertions.assertTrue(getText(firtResultPrice).contains (price) , "Price was different " + getText(firtResultPrice));
+        Assertions.assertTrue(getText(firstResultPrice).contains (price) , "Price was different " + getText(firstResultPrice));
     }
+
+    public void clickFirstResultTitle() {
+        click(firstResultTitle);
+    }
+
+    public void verifyTitle(String title) {
+        LOGGER.info("Verifying the book result title is " + title);
+        Assertions.assertTrue(getText(bookDetailsTitle).contains(title), "Title was different " + getText(bookDetailsTitle));
+    }
+
+    public void verifyBadgeIsCorrect(String badge) {
+        LOGGER.info( "Verifying the badge is " + badge );
+        Assertions.assertTrue(getText(bookDetailsBadge).contains(badge), "Badge was different " + getText(bookDetailsBadge));
+    }
+
+    public void verifyTypeIsCorrect(String type) {
+        LOGGER.info( "Verifying the type is " + type );
+        Assertions.assertTrue(getText(bookDetailsType).contains(type) , "Type was different " + getText(bookDetailsType));
+    }
+
+    public void verifyPriceIsCorrect(String price) {
+        LOGGER.info( "Verifying the price is " + price );
+        Assertions.assertTrue(getText(bookDetailsPrice).contains (price) , "Price was different " + getText(bookDetailsPrice));
+    }
+
+    public void clickAddToBasketButto() {
+        click(addToBasketButton);
+    }
+
+    public void verifyuserIsonbasketDetails() {
+        Assertions.assertTrue(getTitle().contains( "Shopping Basket" ) , "Title was different " + getTitle());
+    }
+
 }

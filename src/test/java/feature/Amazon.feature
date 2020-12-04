@@ -3,39 +3,40 @@ Feature: Add a book into the basket
   I want to add a book into the basket
   so that I can buy it later if i still want it
 
-  @navigateToAmazon @test
-  Scenario: Navigate to amazon
-    Given the user opens a web browser
-    When the user opens amazon
-    Then Amazon Home Page is visible
+#  @navigateToAmazon @test
+#  Scenario: Navigate to amazon
+#    Given the user opens a web browser
+#    When the user opens amazon
+#    Then Amazon Home Page is visible
+#
+#  @searchForBook @test
+#  Scenario Outline: Search for Harry potter book
+#    Given the user is on Amazon Home Page
+#    When the user enters "Harry Potter and the Cursed Child" into the Amazon Search Bar and presses enter
+#    And first result is "Harry Potter and the Cursed Child - Parts One and Two"
+#    And the item has badge "<Badge>"
+#    And the item type should be "<Format>"
+#    Then the item price should be "<Price>"
+#
+#    Examples:
+#    | Badge              | Format        | Price|
+#    | Best Seller        | Kindle        | 0.00 |
+#    | Best Seller        | Hardcover     | 14.78 |
+#    | Best Seller        | Paperback     | 4.00 |
 
-  @searchForBook @test
-  Scenario Outline: Search for Harry potter book
+
+  @bookDetails @test
+  Scenario: Navigate to book details
     Given the user is on Amazon Home Page
     When the user enters "Harry Potter and the Cursed Child" into the Amazon Search Bar and presses enter
-    And first result is "Harry Potter and the Cursed Child - Parts One and Two"
-    And the item has badge "<Badge>"
-    And the item type should be "<Format>"
-    Then the item price should be "<Price>"
+    And the user click on title
+    And title should be "Harry Potter and the Cursed Child - Parts One and Two"
+    And Badge should be "Best Seller"
+    And Price should be "4.00"
+    And Type is "Paperback"
+    And Click add to basket button
+    Then the user is redirected to Basket details
 
-    Examples:
-    | Badge              | Format        | Price|
-    | Best Seller        | Kindle        | 0.00 |
-    | Best Seller        | Hardcover     | 14.78 |
-    | Best Seller        | Paperback     | 4.00 |
-
-
-#  @bookDetails @test
-#  Scenario: Navigate to book details
-#    Given the user click on title
-#    When the user is on Book Details page
-#    And title should be "Harry Potter and the Cursed Child - Parts One and Two"
-#    And Badge should be "Best Seller"
-#    And Price should be "6.67"
-#    And Type is "Paperback"
-#    And Click add to basket button
-#    Then the user is redirected to Basket details
-#
 #
 #  @basketDetails @test
 #  Scenario: Book is added to the basket

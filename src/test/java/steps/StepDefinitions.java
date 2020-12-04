@@ -55,4 +55,39 @@ public class StepDefinitions {
     public void itemHasPrice(String price) {
         webApp.homePage().verifyPrice( price );
     }
+
+    @When("^the user clicks on title")
+    public void clickFirstResultTitle() {
+        webApp.homePage().clickFirstResultTitle();
+    }
+
+    @When("^title should be \"([^\"]*)\"")
+    public void titleIsCorrect(String title) {
+        webApp.homePage().verifyTitle(title);
+    }
+
+    @When("^Badge should be \"([^\"]*)\"")
+    public void badgeIsCorrect(String badge) {
+        webApp.homePage().verifyBadgeIsCorrect(badge);
+    }
+
+    @When("^Price should be \"([^\"]*)\"")
+    public void priceIsCorrect(String price) {
+        webApp.homePage().verifyPriceIsCorrect(price);
+    }
+
+    @When("^Type should be \"([^\"]*)\"")
+    public void typeIsCorrect(String type) {
+        webApp.homePage().verifyTypeIsCorrect(type);
+    }
+
+    @When("^Click add to basket button")
+    public void addToBasketButton() {
+        webApp.homePage().clickAddToBasketButto();
+    }
+
+    @Then("^the user is redirected to Basket details")
+    public void basketDetails() {
+        webApp.homePage().verifyuserIsonbasketDetails();
+    }
 }
