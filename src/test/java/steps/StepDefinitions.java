@@ -66,22 +66,22 @@ public class StepDefinitions {
         webApp.homePage().verifyTitle(title);
     }
 
-    @When("^Badge should be \"([^\"]*)\"")
+    @When("^badge should be \"([^\"]*)\"")
     public void badgeIsCorrect(String badge) {
         webApp.homePage().verifyBadgeIsCorrect(badge);
     }
 
-    @When("^Price should be \"([^\"]*)\"")
+    @When("^price should be \"([^\"]*)\"")
     public void priceIsCorrect(String price) {
         webApp.homePage().verifyPriceIsCorrect(price);
     }
 
-    @When("^Type should be \"([^\"]*)\"")
+    @When("^type should be \"([^\"]*)\"")
     public void typeIsCorrect(String type) {
         webApp.homePage().verifyTypeIsCorrect(type);
     }
 
-    @When("^Click add to basket button")
+    @When("^click add to basket button")
     public void addToBasketButton() {
         webApp.homePage().clickAddToBasketButto();
     }
