@@ -1,4 +1,4 @@
-# Site testing template Test Automation
+# Amazon Test Automation
 UI Automation Framework for Site testing
 
 ## Prerequisites:
