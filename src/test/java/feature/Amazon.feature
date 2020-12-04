@@ -37,21 +37,21 @@ Feature: Add a book into the basket
     And click add to basket button
     Then the user is redirected to Basket details
 
-#
-#  @basketDetails @test
-#  Scenario: Book is added to the basket
-#    Given the user is on Basket details
-#    When notification is shown
-#    And title of the notification is "Added to basket"
-#    Then there is one item in the basket
-#
-#  @editBasket @test
-#  Scenario: Edit basket
-#    Given the user is on Basket details
-#    When the user click on add to basket button
-#    And the user is redirected to "Shopping basket"
-#    And the item in the basket has title "Harry Potter and the Cursed Child - Parts One and Two"
-#    And badge should be "Best Seller"
-#    And type is "Paperback"
-#    And quantity is "1"
-#    Then Price should be "6.67"
+
+  @basketDetails @test
+  Scenario: Book is added to the basket
+    Given the user is on Basket details
+    When notification is shown
+    And title of the notification is "Added to basket"
+    Then there is one item in the basket
+
+  @editBasket @test
+  Scenario: Edit basket
+    Given the user is on Basket details
+    When the user click on add to basket button
+    And the user is redirected to "Shopping basket"
+    And the item in the basket has title "Harry Potter and the Cursed Child - Parts One and Two"
+    And badge should be "Best Seller"
+    And type is "Paperback"
+    And quantity is "1"
+    Then Price should be "4.00"
